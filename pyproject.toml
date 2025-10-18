@@ -2,7 +2,32 @@
 requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "jobs-dash"
+version = "0.1.0"
+description = "A job search dashboard application"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "streamlit>=1.28.0",
+    "pandas>=2.0.0",
+    "python-jobspy>=1.1.79",
+    "redis>=5.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "data*", "config*", "settings*", "utils*", "scripts*"]
+exclude = ["tests*", "**/__pycache__*"]
+
 [project.optional-dependencies]
+test = [
+    "pytest>=8.4.0",
+    "pytest-xdist>=3.8.0",
+    "pytest-cov>=6.2.0",
+    "pytest-mock>=3.14.0",
+]
 dev = [
     "black>=23.12.0",
     "flake8>=7.0.0",
